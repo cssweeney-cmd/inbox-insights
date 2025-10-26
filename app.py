@@ -168,9 +168,15 @@ def create_app() -> Flask:
             #prefix = app.config["UPLOADS_PREFIX"].rstrip("/")
             #s3_key = f"{prefix}/{uid}/{ts}_{safe_name}"
             
+            #safe_name = secure_filename(f.filename)
+            #uid = session["uid"]
+            #prefix = app.config["UPLOADS_PREFIX"].rstrip("/")
+            #s3_key = f"{prefix}/{uid}/{safe_name}"
+            
             safe_name = secure_filename(f.filename)
             uid = session["uid"]
-            prefix = app.config["UPLOADS_PREFIX"].rstrip("/")
+            # ensure prefix is 'rawData/customers'
+            prefix = "/raw_data/customers/"
             s3_key = f"{prefix}/{uid}/{safe_name}"
 
 
