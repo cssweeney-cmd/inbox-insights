@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <h2>Welcome to your dashboard</h2>
+  <p class="muted">Upload a file for processing, or connect to Klaviyo (coming soon).</p>
+
+  <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" style="margin:16px 0">
+    <input type="file" name="file" required>
+    <div style="margin-top:12px">
+      <button class="btn" type="submit">Upload & Continue</button>
+      <a class="btn" href="#" onclick="alert('Klaviyo connect coming soon');return false;">Connect to Klaviyo</a>
+    </div>
+  </form>
+
+  {% if session.get('last_upload_name') %}
+    <p>Last uploaded: <strong>{{ session['last_upload_name'] }}</strong></p>
+    <p class="muted" style="margin-top:6px">Server path saved for backend processing.</p>
+  {% endif %}
+
+  <hr style="border-color:#1e263b;margin:16px 0">
+  <p class="muted">Analytics will appear here after backend processing.</p>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <form method="post">
+    <div class="row">
+      <div class="grow">
+        <label>Username</label>
+        <input type="text" name="username" required autofocus>
+      </div>
+      <div class="grow">
+        <label>Password</label>
+        <input type="password" name="password" required>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <button class="btn" type="submit">Log in</button>
+      <a class="btn" href="{{ url_for('register') }}">Create account</a>
+    </div>
+  </form>
+{% endblock %}
